@@ -80,7 +80,7 @@ function bodySection(data) {
     if (data.userName) {
         toc += `* [Questions?](#questions)` + '\n';
         sections += `## Questions\n
-If you have any questions about this project you can find me on [GitHub](https://github.com/NotEnoughBacon), `;
+If you have any questions about this project you can find me on [GitHub](https://github.com/${data.userName}).\n`;
 
         if (data.email) {
             sections += `Or you can email me at ${data.email}.\n`;
