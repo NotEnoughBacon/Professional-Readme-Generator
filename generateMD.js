@@ -1,3 +1,4 @@
+//holds the paths to the different licenses 
 const licensePath = {
     unlicense: 'https://unlicense.org',
     apache: 'https://www.apache.org/licenses/LICENSE-2.0.html',
@@ -5,6 +6,7 @@ const licensePath = {
     gpv3: 'https://www.gnu.org/licenses/gpl-3.0.en.html'
 }
 
+//gets the link of the license
 function getLicense (license) {
     switch (license) {
         case 'Unlicense':
@@ -21,6 +23,7 @@ function getLicense (license) {
     }
 }
 
+//gets the badge icons to the license to display
 function getBadge (license) {
     switch (license) {
         case 'Unlicense':
@@ -37,6 +40,7 @@ function getBadge (license) {
     }
 }
 
+//creates the license section showing your selected license with your name
 function licenseSection (license, yourName) {
 
     return `## License\n
@@ -45,6 +49,7 @@ ${license == 'Unlicense' ? '' : ', copyright by ' + yourName}\n____\n
 Badges from [Shields.io](https://shields.io)`;
 }
 
+//creates empty strings to add table of content and section data, and then adds the data to those strings based of user input
 function bodySection(data) {
     
     let sections = ''
@@ -90,7 +95,7 @@ If you have any questions about this project you can find me on [GitHub](https:/
     return descriptions + toc + sections;
 }
 
-
+//This aligns the content on the markdown in order
 function generateMarkdown(data) {
     return `# ${data.projectName}
 ${getBadge(data.license)}
@@ -98,6 +103,7 @@ ${bodySection(data)}
 ${licenseSection(data.license, data.yourName)}`;
 }
 
+//exporting it back
 module.exports = {
     generateMarkdown: generateMarkdown
 };

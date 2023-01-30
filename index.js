@@ -1,7 +1,9 @@
+//importing everything i need
 const fs = require('fs');
 const inquirer = require('inquirer');
 const genMD = require('./generateMD')
 
+//Prompt and get data from user
 inquirer.prompt ([
     {
         type: 'input',
@@ -70,10 +72,13 @@ EMAIL`
     }
 ]).then((data) => {
 
+    //Put data into markdown 
     const MDReadme = genMD.generateMarkdown(data)
 
+    //create file name
     const fileName = `${data.projectName}_README.md`
 
+    //create file
     fs.writeFile (fileName, MDReadme, (err) => {
         err ? console.error(err) : console.log('Success!')
     });
